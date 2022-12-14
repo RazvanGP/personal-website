@@ -4,7 +4,7 @@
   --primary-color: #047aed;
   --dark-color: #002240;
   --primary-text-color: #fff;
-  --light-color: white;
+  --light-color: #fff;
   --secondary-text-color: #333;
   --input-border-color: #b4becd;
   --navbar-mobile-color: rgba(0, 0, 0, 0.2);
@@ -26,7 +26,7 @@ body {
   height: 100vh;
 }
 
-body * {
+body *:not(a) {
   transition: 0.4s;
 }
 
@@ -165,7 +165,7 @@ input:checked + .slider:before {
 .contact-form {
   position: relative;
   top: 60px;
-  height: 350px;
+  height: 400px;
   width: 350px;
   z-index: 100;
   animation: slideInFromRight 1s ease-in;
@@ -180,22 +180,27 @@ input:checked + .slider:before {
 }
 
 .contact-form input[type="text"],
-.contact-form input[type="email"] {
+.contact-form input[type="email"],
+.contact-form textarea {
   border: 0;
   border-bottom: 1px solid var(--input-border-color);
   width: 100%;
   padding: 3px;
   font-size: 16px;
   background-color: var(--light-color);
+  color: var(--secondary-text-color);
+  font-family: "Oswald", sans-serif;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"] {
+.contact-form input[type="text"]::placeholder,
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
   color: var(--secondary-text-color);
   opacity: 0.4;
 }
 
-.contact-form input:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   outline: none;
 }
 
@@ -209,6 +214,10 @@ input:checked + .slider:before {
   left: 0;
   background-color: var(--light-color);
   transform: skewY(-3deg);
+}
+
+.contact-form textarea {
+  resize: none;
 }
 
 /* Stats */
